@@ -15,24 +15,21 @@ Project Bot discord yang berfungsi untuk manajemen tugas kuliah
 git clone https://github.com/aishi11/Bot-Discord-Tugas_Kuliah.git
 cd Bot-Discord-Tugas_Kuliah 
 ```
-2. Install Depedensi
+2. Buat dan isi file .env dengan token bot Discord kamu:
+```env
+DISCORD_TOKEN=token_bot_discord_kamu
+```
+3. Install Depedensi
 ```bash
 pip install -r requirements.txt
 ```
-
-# Cara Menjalankan BOT
-
-1. Siapkan Token BOT (lihat di .env)
-2. Jalankan bot
+4. Jalankan Bot
 ```bash
-python discord_bot.py
+python bot.py
 ```
-3. Perintah BOT :
-Gunakan ! atau tombol interaktif:
-- !menu = menampilkan menu
-- !tambah [judul tugas] = untuk menambahkan tugas
-- list = Lihat semua tugas
-- !selesai [ID tugas]` = untuk menandai tugas selesai.
-- !hapus [ID tugas] = untuk menghapus tugas berdasarkan ID
+# ⚠️ Catatan
+Pastikan intents.message_content = True diaktifkan pada bot dan dashboard Discord Developer Portal.
+
+
 
 
