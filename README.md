@@ -30,6 +30,10 @@ python bot.py
 # ⚠️ Catatan
 Pastikan intents.message_content = True diaktifkan pada bot dan dashboard Discord Developer Portal.
 
-
+# 💡 Contoh Perintah Discord
+1. !tambah Kerjakan tugas AI
+2. !hapus 1
+3. !tandai 2
+4. !list
 
 
