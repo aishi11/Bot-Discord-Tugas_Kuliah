@@ -32,8 +32,20 @@ Pastikan intents.message_content = True diaktifkan pada bot dan dashboard Discor
 
 # 💡 Contoh Perintah Discord
 1. !add_task <deskripsi_tugas> = menambahkan tugas dengan menuliskan judul atau deksripsi tugas
+```bash
+!add_task tugas algoritma dan struktur data 5 soal di e-learning
+```
 2. !delete_task <task_id> = menghapus tugas berdasarkan id tugas
+```bash
+!delete_task 2
+```
 3. !complete_task <task_id> = menandai tugas yang sudah selesai dikerjakan berdasarkan id tugas
+```bash
+!complete_task 1
+```
 4. !show_tasks = melihat daftar atau list tugas
+```bash
+!show_tasks
+```
 
 
