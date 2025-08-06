@@ -5,7 +5,7 @@ Project Bot discord yang berfungsi untuk manajemen tugas kuliah
 - Menambahkan tugas kuliah
 - Melihat daftar tugas
 - Menghapus atau menandai tugas sebagai selesai
-- Antarmuka interaktif di Discord dengan tombol
+
 
 ## 🛠️ Instalasi
 
@@ -25,15 +25,15 @@ pip install -r requirements.txt
 ```
 4. Jalankan Bot
 ```bash
-python bot.py
+python discord_bot.py
 ```
 # ⚠️ Catatan
 Pastikan intents.message_content = True diaktifkan pada bot dan dashboard Discord Developer Portal.
 
 # 💡 Contoh Perintah Discord
-1. !tambah Kerjakan tugas AI
-2. !hapus 1
-3. !tandai 2
-4. !list
+1. !add_task <deskripsi_tugas> = menambahkan tugas dengan menuliskan judul atau deksripsi tugas
+2. !delete_task <task_id> = menghapus tugas berdasarkan id tugas
+3. !complete_task <task_id> = menandai tugas yang sudah selesai dikerjakan berdasarkan id tugas
+4. !show_tasks = melihat daftar atau list tugas
 
 
