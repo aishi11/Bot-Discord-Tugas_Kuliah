@@ -27,11 +27,17 @@ class TaskBot:
         return True
 
     def mark_done(self, task_id):
+        self.cursor.execute("SELECT completed FROM tugas_kuliah WHERE task_id = ?", (task_id,))
+        row = self.cursor.fetchone()
+
+        if row is None:
+            return "not_found"
+        if row[0] == 1:
+            return "already_done"
+
         self.cursor.execute("UPDATE tugas_kuliah SET completed = 1 WHERE task_id = ?", (task_id,))
-        if self.cursor.rowcount == 0:
-            return False
         self.conn.commit()
-        return True
+        return "marked"
     
     def list_tugas(self):
         self.cursor.execute("SELECT * FROM tugas_kuliah")

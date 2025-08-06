@@ -8,7 +8,7 @@ load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.default()
-intents.message_content = True  # WAJIB diaktifkan
+intents.message_content = True  
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 taskbot = TaskBot()
@@ -29,8 +29,13 @@ async def delete_task(ctx, task_id: int):
 
 @bot.command()
 async def complete_task(ctx, task_id: int):
-    success = taskbot.mark_done(task_id)
-    await ctx.send("Tugas ditandai selesai!" if success else "Tugas tidak ditemukan.")
+    result = taskbot.mark_done(task_id)
+    if result == "marked":
+        await ctx.send("Tugas ditandai selesai!")
+    elif result == "already_done":
+        await ctx.send("Tugas sudah ditandai selesai.")
+    else:
+        await ctx.send("Tugas tidak ditemukan.")
 
 @bot.command()
 async def show_tasks(ctx):
