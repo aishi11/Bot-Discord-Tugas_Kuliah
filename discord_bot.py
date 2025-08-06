@@ -8,6 +8,8 @@ load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.default()
+intents.message_content = True  # WAJIB diaktifkan
+
 bot = commands.Bot(command_prefix='!', intents=intents)
 taskbot = TaskBot()
 
@@ -16,24 +18,27 @@ async def on_ready():
     print(f'{bot.user} telah masuk sebagai bot!')
 
 @bot.command()
-async def tambah(ctx, *, deskripsi):
-    task = taskbot.add_task(deskripsi)
-    await ctx.send(f'Tugas ditambahkan: {task["id"]}. {task["desc"]}')
+async def add_task(ctx, *, judul_tugas):
+    task = taskbot.add_task(judul_tugas)
+    await ctx.send(f'Tugas ditambahkan: {task["task_id"]}. {task["judul_tugas"]}')
 
 @bot.command()
-async def hapus(ctx, task_id: int):
+async def delete_task(ctx, task_id: int):
     success = taskbot.delete_task(task_id)
     await ctx.send("Tugas berhasil dihapus!" if success else "Tugas tidak ditemukan.")
 
 @bot.command()
-async def tandai(ctx, task_id: int):
+async def complete_task(ctx, task_id: int):
     success = taskbot.mark_done(task_id)
     await ctx.send("Tugas ditandai selesai!" if success else "Tugas tidak ditemukan.")
 
 @bot.command()
-async def list(ctx):
+async def show_tasks(ctx):
     tugas = taskbot.list_tugas()
     await ctx.send(tugas)
 
 def run_discord_bot():
     bot.run(TOKEN)
+
+if __name__ == "__main__":
+    run_discord_bot()
